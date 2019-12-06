@@ -10,14 +10,10 @@ def stop_autonomous_dbs(config, signer, compartments):
         # print("  compartment: {}".format(compartment.name))
         resources = _get_resource_list(config, signer, compartment.id)
         for resource in resources:
-            go = 0
-            if (resource.lifecycle_state == 'AVAILABLE'):
-                if ('Monitoring' in resource.defined_tags) and ('whitelisted' in resource.defined_tags['Monitoring']): 
-                    if (resource.defined_tags['Monitoring']['whitelisted'].upper() != 'yes'):
-                        go = 1
-                else:
-                    go = 1
-
+            go = 1
+            if (resource.lifecycle_state == 'RUNNING'):
+                if (resource.defined_tags['Monitoring']['whitelisted'].upper() == 'YES'):
+                    go = 0
             if (go == 1):
                 print("    * {} ({}) in {}".format(resource.display_name, resource.lifecycle_state, compartment.name))
                 target_resources.append(resource)
