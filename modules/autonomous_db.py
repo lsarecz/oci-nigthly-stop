@@ -12,8 +12,8 @@ def stop_autonomous_dbs(config, signer, compartments):
         for resource in resources:
             go = 0
             if (resource.lifecycle_state == 'AVAILABLE'):
-                if ('control' in resource.defined_tags) and ('nightly_stop' in resource.defined_tags['control']): 
-                    if (resource.defined_tags['control']['nightly_stop'].upper() != 'FALSE'):
+                if ('Monitoring' in resource.defined_tags) and ('whitelisted' in resource.defined_tags['Monitoring']): 
+                    if (resource.defined_tags['Monitoring']['whitelisted'].upper() != 'yes'):
                         go = 1
                 else:
                     go = 1
