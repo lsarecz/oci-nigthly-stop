@@ -10,14 +10,10 @@ def stop_compute_instances(config, signer, compartments):
         # print("  compartment: {}".format(compartment.name))
         resources = _get_resource_list(config, signer, compartment.id)
         for resource in resources:
-            go = 0
+            go = 1
             if (resource.lifecycle_state == 'RUNNING'):
-                if ('control' in resource.defined_tags) and ('nightly_stop' in resource.defined_tags['control']): 
-                    if (resource.defined_tags['control']['nightly_stop'].upper() != 'FALSE'):
-                        go = 1
-                else:
-                    go = 1
-
+                if (resource.defined_tags['Monitoring']['whitelisted'].upper() == 'YES'):
+                    go = 0
             if (go == 1):
                 print("    * {} ({}) in {}".format(resource.display_name, resource.lifecycle_state, compartment.name))
                 target_resources.append(resource)
