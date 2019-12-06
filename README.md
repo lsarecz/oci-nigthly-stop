@@ -1,45 +1,45 @@
 # oci-nigthly-stop
 
-夜間にOCIのインスタンスを停止します。
-また、 ついでに Autonomous Database のライセンスモデルを BYOL に変更します。
+Stops the OCI resources at night.
+Also, change the licensing model of Autonomous Database to BYOL.
 
 
-## 停止対象のインスタンス
+## Instances to be stopped
 
-- コンピュート・インスタンス
+- Compute instance
 - Autonomous Database
 - Database (DBaaS)
 
 
-## 前提条件
+## Prerequisites
 - oci python SDK
-- Python 3 以上
-- ocicli プロファイルが作成済みのこと `oci setup config` で作れます。
+- Python 3
+- ocicli profile created and `oci setup config` executed
 
 
-## 使い方
+## How to use
 
-1. このリポジトリをクローンします
+1. Clone this repository
 
-1. stop.py ファイルを開き、 # Specify your config file と書かれた箇所を環境に合わせて編集します。
+2. Open the file stop.py # Specify your config file where "according to the environment" is written.
 
-1. 以下のコマンドで停止処理が実行されます
+3. Stop process is executed with the following command
     `python3 stop.py`
     
-1. ログなどは標準出力およびエラー出力に吐かれますので、必要に応じてログファイルにリダイレクトしてください。
+4. Logs are written to the standard output and error output. If necessary, redirect them to a log file.
 
-1. Pythonのスケジューラーは使用していません。必要に応じて cron などで定期実行してください。
+5. Python scheduler is not used. If necessary, execute it periodically using cron.
 
-    (以下 毎日24時に実行する場合の設定例)
+    (The following is an example for executing every day at 24:00)
     `0 0 * * * cd /home/opc; python3 -u /home/opc/oci-nightly-stop/stop.py > /home/opc/log/stop_`date +\%Y\%m\%d-\%H\%M\%S`.log 2>&1`
 
 
-## インスタンスを停止対象から除外したい場合
+## If you want to exclude an instance from being stopped
 
-各インスタンスに、以下の Defined Tag を設定しておくことで、停止対象から除外することができます。
+For each instance: Defined Tag By setting, you can exclude it from being stopped.
 
-    - タグ・ネームスペース : control
-    - タグ ： nightly_stop
-    - タグの値 : false
+    - Tag namespace: control
+    - tag： nightly_stop
+    - Tag value: false
     
-エンドユーザー向けの設定方法のガイドは、https://github.com/mmarukaw/oci-nigthly-stop/blob/master/guide/howtoaddtags.md にありますので、こちらもご覧ください。
+For a guide on how to set up tags: https://github.com/mmarukaw/oci-nigthly-stop/blob/master/guide/howtoaddtags.md
