@@ -38,8 +38,8 @@ Also, change the licensing model of Autonomous Database to BYOL.
 
 For each instance: Defined Tag By setting, you can exclude it from being stopped.
 
-    - Tag namespace: control
-    - tag： nightly_stop
-    - Tag value: false
+    - Tag namespace: Monitoring
+    - Tag：whitelisted
+    - Tag value: yes
     
-For a guide on how to set up tags: https://github.com/mmarukaw/oci-nigthly-stop/blob/master/guide/howtoaddtags.md
+For a guide on how to set up tags: https://github.com/lsarecz/oci-nigthly-stop/blob/master/guide/howtoaddtags.md
