@@ -13,19 +13,19 @@ from modules.db_system import *
 configfile = '~/.oci/config'
 
 # Specify your profile name
-profile = 'orasejapan'
+profile = 'cee'
 
 # Set true if using instance principal signing
 use_instance_principal = 'TRUE'
 
 # Set top level compartment OCID. Tenancy OCID will be set if null.
-top_level_compartment_id = ''
+top_level_compartment_id = 'ocid1.compartment.oc1..aaaaaaaawjjjene7qjr7qxoovi5xubmnfkhc6n3i7qpqjgywzri4iro6lziq' # Workshops compartment for testing
 
 # List compartment names to exclude
-excluded_compartments = ['MANAGEMENT', 'CommonResources', 'ManagedCompartmentForPaaS', 'NetworkCompartmentForPaaS', 'SharedObjectCompartment']
+excluded_compartments = ['Demos', 'CommonResources', 'ManagedCompartmentForPaaS', 'NetworkCompartmentForPaaS', 'SharedObjectCompartment']
 
 # List target regions. All regions will be counted if null.
-# target_region_names = ['us-ashburn-1']
+# target_region_names = ['eu-frankfurt-1']
 target_region_names = []
 
 #############################################
