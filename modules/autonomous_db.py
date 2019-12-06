@@ -15,6 +15,9 @@ def stop_autonomous_dbs(config, signer, compartments):
                 if ('Monitoring' in resource.defined_tags) and ('whitelisted' in resource.defined_tags['Monitoring']): 
                     if (resource.defined_tags['Monitoring']['whitelisted'].upper() != 'YES'):
                         go = 1
+                else:
+                    go = 1
+                        
             if (go == 1):
                 print("    * {} ({}) in {}".format(resource.display_name, resource.lifecycle_state, compartment.name))
                 target_resources.append(resource)
