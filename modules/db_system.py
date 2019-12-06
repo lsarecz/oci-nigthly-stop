@@ -12,8 +12,8 @@ def stop_database_systems(config, signer, compartments):
         for db_system in db_systems:
             go = 0
             if (db_system.lifecycle_state == 'AVAILABLE'):
-                if ('control' in db_system.defined_tags) and ('nightly_stop' in db_system.defined_tags['control']): 
-                    if (db_system.defined_tags['control']['nightly_stop'].upper() != 'FALSE'):
+                if ('Monitoring' in db_system.defined_tags) and ('whitelisted' in db_system.defined_tags['Monitoring']): 
+                    if (db_system.defined_tags['Monitoring']['whitelisted'].upper() != 'YES'):
                         go = 1
                 else:
                     go = 1
