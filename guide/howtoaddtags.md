@@ -16,18 +16,22 @@ The stop script runs every night based on your cron job. If you want to exclude 
 
 1. From the OCI console, open the instance details screen
 
-2. Press the blue **Apply Tag** button
+2. Click on the **Add Tag** item within **More Actions**
 
     ![](image/01.png)
 
-3. Enter the following information and press the blue **Apply Tag** button
-    - **Tag Namespace** : Select *control*
-    - **Tag Key** : Select *nightly_stop*
-    - **Tag Value** : Enter *false*
+3. Enter the following information and press the blue **Add Tags** button
+    - **Tag Namespace** : Select *Monitoring*
+    - **Tag Key** : Select *whitelisted*
+    - **Value** : Select *Yes*
 
     ![](image/02.png)
+    
+    If the whitelisted tag as already set by Tag Defaults, you just need to update it starting from the **Tags** tab of the instance details page.
+    
+    ![](image/02update.png)
 
-4. Confirm that the set tag information is displayed in the **Tag** tab of the instance details screen.
+4. Confirm that the set tag information is displayed in the **Tags** tab of the instance details screen.
 
     ![](image/03.png)
 
@@ -38,15 +42,14 @@ The stop script runs every night based on your cron job. If you want to exclude 
 
 1. Open the database system details screen from the OCI console
 
-2. Press the blue **Add Tag** button
+2. Click on the **Add Tag** item within **More Actions**
 
     ![](image/08.png)
 
 3. Enter the following information and press the blue **Apply Tag** button
-    - **Tag Namespace** : Select *control*
-    - **Tag Key** : Select *nightly_stop*
-    - **Tag Value** : Enter *false*
-
+    - **Tag Namespace** : Select *Monitoring*
+    - **Tag Key** : Select *whitelisted*
+    - **Value** : Select *Yes*
     ![](image/02.png)
 
 4. Confirm that the set tag information is displayed in the **Tag** tab of the instance details screen.
@@ -58,17 +61,17 @@ The stop script runs every night based on your cron job. If you want to exclude 
 
 1. From the OCI console, open the ATP or ADW instance details screen
 
-2. Press the **Apply Tag** button in the action menu
+2. Click on the **Add Tag** item within **More Actions**
 
     ![](image/04.png)
 
-3. Enter the following information and press the blue ** Apply Tag ** button
-    - **Tag Namespace** : Select *control*
-    - **Tag Key** : Select *nightly_stop*
-    - **Tag Value** : Enter *false*
-
+3. Enter the following information and press the blue **Apply Tag** button
+    - **Tag Namespace** : Select *Monitoring*
+    - **Tag Key** : Select *whitelisted*
+    - **Value** : Select *Yes*
+    
     ![](image/02.png)
 
-4. Confirm that the set tag information is displayed in the ** Tag ** tab of the instance details screen.
+4. Confirm that the set tag information is displayed in the **Tag** tab of the instance details screen.
 
 5. This completes the settings
