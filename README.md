@@ -36,10 +36,10 @@ Also, change the licensing model of Autonomous Database to BYOL.
 
 ## If you want to exclude an instance from being stopped
 
-For each instance: Defined Tag By setting, you can exclude it from being stopped.
+For each instance by setting whitelisted tag to 'Yes', you can exclude it from being stopped.
 
-    - Tag namespace: Monitoring
-    - Tag：whitelisted
-    - Tag value: yes
+    - Tag Namespace: Monitoring
+    - Tag Key：whitelisted
+    - Value: yes
     
 For a guide on how to set up tags: https://github.com/lsarecz/oci-nigthly-stop/blob/master/guide/howtoaddtags.md
