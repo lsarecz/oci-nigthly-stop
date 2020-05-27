@@ -15,7 +15,11 @@ Also, change the licensing model of Autonomous Database to BYOL.
 - oci python SDK
 - Python 3
 - ocicli profile created and `oci setup config` executed
-
+- In tenancies created before December 17, 2019 create 2 Tag Defaults: 
+    - Monitoring.owner (Cost-tracking tag)
+    - Monitoring.creation_date
+    
+    See Managing Tag Defaults: https://docs.cloud.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagdefaults.htm
 
 ## How to use
 
@@ -43,3 +47,5 @@ For each instance by setting whitelisted tag to 'Yes', you can exclude it from b
     - Value: yes
     
 For a guide on how to set up tags: https://github.com/lsarecz/oci-nigthly-stop/blob/master/guide/howtoaddtags.md
+
+You may also set whitelisted tag to 'No' by default with Tag Defaults at tenant level. Go to **Compartments** within **Identity** menu and click on root compartment. On left menu click on **Tag Default**.
