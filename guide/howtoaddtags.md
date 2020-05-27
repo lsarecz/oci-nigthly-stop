@@ -1,74 +1,74 @@
-# 夜間にインスタンスを停止させないように設定する方法
+# How to configure the instance not to stop at night
 
-2019/9/19(木)より、夜間に起動中のインスタンスは強制的に停止します。夜間に停止させたくないインスタンスがある場合には、このドキュメントの手順にしたがってタグを設定することで、停止対象から除外することができます。
+If you have an instance that you do not want to stop at night, you can exclude it from stopping by tagging it according to the instructions in this document.
 
-停止は、毎晩22時に実行されます。一時的に停止対象から外したい場合も、この手順でタグを設定することで、インスタンスは夜間に停止しなくなります。タグを削除したり、値をfalse以外に設定することで、また夜間停止対象に戻すことができます。
+The stop script runs every night based on your cron job. If you want to exclude an instance from stop, you can set the whitelist tag so that the instance will not stop at night. It can be returned to the target of night stop again by deleting the tag or setting the value to other than yes.
 
 
-### 夜間停止対象のインスタンス
-- コンピュート・インスタンス
-- データベース・システム
-- ATPおよびADW インススタンス
+### Instance to be stopped overnight
+- Compute instance
+- Database system
+- ATP and ADW instances
 
-## 各インスタンスのタグ設定方法
+## Tag setting method for each instance
 
-### コンピュート・インスタンス
+### Compute instance
 
-1. OCIコンソールから、インスタンスの詳細画面を開きます
+1. From the OCI console, open the instance details screen
 
-2. 青色の **タグの適用** ボタンを押します
+2. Press the blue **Apply Tag** button
 
     ![](image/01.png)
 
-3. 以下の情報を入力し、青色の **タグの適用** ボタンを押します
-    - **タグ・ネームスペース** : *control* を選択
-    - **タグ・キー** : *nightly_stop* を選択
-    - **値** : *false* と入力
+3. Enter the following information and press the blue **Apply Tag** button
+    - **Tag Namespace** : Select *control*
+    - **Tag Key** : Select *nightly_stop*
+    - **Tag Value** : Enter *false*
 
     ![](image/02.png)
 
-4. インスタンス詳細画面の **タグ** タブの中に、設定したタグ情報が表示されていることを確認します
+4. Confirm that the set tag information is displayed in the **Tag** tab of the instance details screen.
 
     ![](image/03.png)
 
-5. 以上で設定は完了です
+5. This completes the settings
 
 
-### データベース・システム
+### Database system
 
-1. OCIコンソールから、データベース・システムの詳細画面を開きます
+1. Open the database system details screen from the OCI console
 
-2. 青色の **タグの追加** ボタンを押します
+2. Press the blue **Add Tag** button
 
     ![](image/08.png)
 
-3. 以下の情報を入力し、青色の **タグの適用** ボタンを押します
-    - **タグ・ネームスペース** : *control* を選択
-    - **タグ・キー** : *nightly_stop* を選択
-    - **値** : *false* と入力
+3. Enter the following information and press the blue **Apply Tag** button
+    - **Tag Namespace** : Select *control*
+    - **Tag Key** : Select *nightly_stop*
+    - **Tag Value** : Enter *false*
 
     ![](image/02.png)
 
-4. インスタンス詳細画面の **タグ** タブの中に、設定したタグ情報が表示されていることを確認します
+4. Confirm that the set tag information is displayed in the **Tag** tab of the instance details screen.
 
-5. 以上で設定は完了です
+5. This completes the settings
 
 
-### ATPおよびADW インススタンス
+### ATP and ADW instances
 
-1. OCIコンソールから、ATPまたはADWのインスタンス詳細画面を開きます
+1. From the OCI console, open the ATP or ADW instance details screen
 
-2. アクション メニューの中の、**タグの適用** ボタンを押します
+2. Press the **Apply Tag** button in the action menu
 
     ![](image/04.png)
 
-3. 以下の情報を入力し、青色の **タグの適用** ボタンを押します
-    - **タグ・ネームスペース** : *control* を選択
-    - **タグ・キー** : *nightly_stop* を選択
-    - **値** : *false* と入力
+3. Enter the following information and press the blue ** Apply Tag ** button
+    - **Tag Namespace** : Select *control*
+    - **Tag Key** : Select *nightly_stop*
+    - **Tag Value** : Enter *false*
 
     ![](image/02.png)
 
-4. インスタンス詳細画面の **タグ** タブの中に、設定したタグ情報が表示されていることを確認します
+4. Confirm that the set tag information is displayed in the ** Tag ** tab of the instance details screen.
 
-5. 以上で設定は完了です
+5. This completes the settings
