@@ -7,6 +7,7 @@ from modules.identity import *
 from modules.compute import *
 from modules.autonomous_db import *
 from modules.db_system import *
+from modules.blockstorage import *
 
 ########## Configuration ####################
 # Specify your config file
@@ -22,7 +23,7 @@ use_instance_principal = 'TRUE'
 top_level_compartment_id = 'ocid1.compartment.oc1..aaaaaaaawjjjene7qjr7qxoovi5xubmnfkhc6n3i7qpqjgywzri4iro6lziq' # Workshops compartment for testing
 
 # List compartment names to exclude
-excluded_compartments = ['Demos', 'CommonResources', 'ManagedCompartmentForPaaS', 'NetworkCompartmentForPaaS', 'SharedObjectCompartment']
+excluded_compartments = ['CommonResources', 'ManagedCompartmentForPaaS', 'NetworkCompartmentForPaaS', 'SharedObjectCompartment']
 
 # List target regions. All regions will be counted if null.
 # target_region_names = ['eu-frankfurt-1']
@@ -72,6 +73,7 @@ for region in target_regions:
 
     config["region"] = region.region_name
 
+    change_block_volume_performance(config, signer, target_compartments)
     change_autonomous_db_license(config, signer, target_compartments)
     stop_compute_instances(config, signer, target_compartments)
     stop_database_systems(config, signer, target_compartments)
