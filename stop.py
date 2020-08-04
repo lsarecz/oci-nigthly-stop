@@ -14,13 +14,13 @@ from modules.blockstorage import *
 configfile = '~/.oci/config'
 
 # Specify your profile name
-profile = 'cee'
+profile = 'my_profile'
 
 # Set true if using instance principal signing
 use_instance_principal = 'TRUE'
 
 # Set top level compartment OCID. Tenancy OCID will be set if null.
-top_level_compartment_id = 'ocid1.compartment.oc1..aaaaaaaawjjjene7qjr7qxoovi5xubmnfkhc6n3i7qpqjgywzri4iro6lziq' # Workshops compartment for testing
+top_level_compartment_id = ''
 
 # List compartment names to exclude
 excluded_compartments = ['CommonResources', 'ManagedCompartmentForPaaS', 'NetworkCompartmentForPaaS', 'SharedObjectCompartment']
